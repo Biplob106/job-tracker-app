@@ -181,7 +181,7 @@ function renderInterview() {
   for (let interview of interviewList) {
 
     let div = document.createElement('div');
-    div.className = 'flex justify-between  bg-white shadow mt-4 py-2 px-4';
+    div.className = 'flex flex-col sm:flex-row sm:justify-between bg-white shadow mt-4 py-4 px-4 gap-4';
 
     div.innerHTML = ` <div class="space-y-6">
                     <h1 class="comapny-name">${interview.companyName}</h1>
@@ -195,7 +195,7 @@ function renderInterview() {
                     </div>
 
                 </div>
-                <div>
+                <div class="self-end sm:self-start">
                     <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                 </div>  `;
     filterSection.appendChild(div);
@@ -208,7 +208,7 @@ function renderRejection() {
   for (let rejection of rejectionList) {
 
     let div = document.createElement('div');
-    div.className = 'flex justify-between  bg-white shadow mt-4 py-2 px-4';
+    div.className = 'flex flex-col sm:flex-row sm:justify-between bg-white shadow mt-4 py-4 px-4 gap-4';
 
     div.innerHTML = ` <div class="space-y-6">
                     <h1 class="comapny-name">${rejection.companyName}</h1>
@@ -223,7 +223,7 @@ function renderRejection() {
 
 
                 </div>
-                <div>
+                <div class="self-end sm:self-start">
                     <button class="delete-btn"><i class="fa-regular fa-trash-can"></i></button>
                 </div>`;
     filterSection.appendChild(div);
