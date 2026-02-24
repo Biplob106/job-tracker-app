@@ -12,12 +12,25 @@ let rejectionFilterbtn = document.getElementById('rejected-filter-btn');
 let mainContainer = document.querySelector('main');
 let filterSection = document.getElementById('filtered-section');
 let allCards = document.getElementById('allCard');
+ let  jobCount = document.getElementById('job-count');
 
 
 function calculateTotal(){
     totalJob.innerText = allCards.children.length;
-    totalInterview.innerText = interviewList.length
-    totalRejection.innerText =rejectionList.length
+    const total = totalJob.innerText;
+    totalInterview.innerText = interviewList.length;
+    totalRejection.innerText =rejectionList.length;
+
+    if (currentStatus === 'interview-filter-btn') {
+        jobCount.innerText = `${interviewList.length} / ${total}`;
+    }
+    else if (currentStatus === 'rejected-filter-btn') {
+        jobCount.innerText = `${rejectionList.length} / ${total}`;
+    }
+    else {
+        jobCount.innerText = allCards.children.length;
+        ;
+    }
    
 }
 
@@ -37,19 +50,22 @@ function toggleStyle(id){
   
       currentStatus=id;
 
-      if(id=='interview-filter-btn'){
+      if(id==='interview-filter-btn'){
         allCards.classList.add('hidden');
         filterSection.classList.remove('hidden');
-        renderInterview()
+        renderInterview();
+        calculateTotal();
         
-      }else if(id=='all-filter-btn'){
+      }else if(id==='all-filter-btn'){
          allCards.classList.remove('hidden');
-        filterSection.classList.add('hidden')
+        filterSection.classList.add('hidden');
+        calculateTotal();
 
-      }else if(id=='rejected-filter-btn'){
-        rejectionFilterbtn.classList.remove('hidden');
-        filterSection.classList.add('hidden')
-        renderRejection()
+      }else if(id==='rejected-filter-btn'){
+        allCards.classList.add('hidden');
+        filterSection.classList.remove('hidden');
+        renderRejection();
+        calculateTotal();
 
       }
 }
@@ -65,13 +81,14 @@ mainContainer.addEventListener('click',function(event){
     const salary = targetelement.querySelector('.salary').innerText;
     const description =targetelement.querySelector('.description').innerText;
     const status = targetelement.querySelector('.status').innerText;
+    targetelement.querySelector('.status').innerText='INTERVIEW'
 
    const infoCard = {
     companyName,
     position,
     salary,
     description,
-    status
+    status:'INTERVIEW'
    };
 
   const exist = interviewList.find(item=> item.companyName == infoCard.companyName)
@@ -95,6 +112,7 @@ mainContainer.addEventListener('click',function(event){
     const salary = targetelement.querySelector('.salary').innerText;
     const description =targetelement.querySelector('.description').innerText;
     const status = targetelement.querySelector('.status').innerText;
+    targetelement.querySelector('.status').innerText='REJECT'
     
 
    const infoCard = {
@@ -102,7 +120,7 @@ mainContainer.addEventListener('click',function(event){
     position,
     salary,
     description,
-    status
+    status:'REJECT'
    }
   const exist = rejectionList.find(item=> item.companyName == infoCard.companyName)
   if(!exist){
