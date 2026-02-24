@@ -118,6 +118,8 @@ mainContainer.addEventListener('click', function (event) {
 
     const companyName = targetelement.querySelector('.comapny-name').innerText;
     const position = targetelement.querySelector('.position').innerText;
+    const location = targetelement.querySelector('.location').innerText;
+    const type = targetelement.querySelector('.type').innerText;
     const salary = targetelement.querySelector('.salary').innerText;
     const description = targetelement.querySelector('.description').innerText;
     const status = targetelement.querySelector('.status').innerText;
@@ -126,6 +128,8 @@ mainContainer.addEventListener('click', function (event) {
     const infoCard = {
       companyName,
       position,
+      location,
+      type,
       salary,
       description,
       status: 'INTERVIEW'
@@ -148,6 +152,8 @@ mainContainer.addEventListener('click', function (event) {
 
     const companyName = targetelement.querySelector('.comapny-name').innerText;
     const position = targetelement.querySelector('.position').innerText;
+     const location = targetelement.querySelector('.location').innerText;
+    const type = targetelement.querySelector('.type').innerText;
     const salary = targetelement.querySelector('.salary').innerText;
     const description = targetelement.querySelector('.description').innerText;
     const status = targetelement.querySelector('.status').innerText;
@@ -157,6 +163,8 @@ mainContainer.addEventListener('click', function (event) {
     const infoCard = {
       companyName,
       position,
+      location,
+      type,
       salary,
       description,
       status: 'REJECT'
@@ -186,7 +194,12 @@ function renderInterview() {
     div.innerHTML = ` <div class="space-y-6">
                     <h1 class="comapny-name">${interview.companyName}</h1>
                     <p class="position">${interview.position}</p>
-                    <p class="salary">${interview.salary}</p>
+                    <div>
+                    <p class="location"> ${interview.location}</p>
+                    <p class="type">• ${interview.location}</p>
+                    <p class="salary">• ${interview.location}</p>
+                    </div>
+                    
                     <p class="status">${interview.status}</p>
                     <p class="description">${interview.description}</p>
                     <div>
@@ -213,7 +226,12 @@ function renderRejection() {
     div.innerHTML = ` <div class="space-y-6">
                     <h1 class="comapny-name">${rejection.companyName}</h1>
                     <p class="position">${rejection.position}</p>
-                    <p class="salary">${rejection.position}</p>
+                    <div>
+                    <p class="location"> ${rejection.location}</p>
+                    <p class="type">• ${rejection.location}</p>
+                    <p class="salary">• ${rejection.location}</p>
+                    </div>
+                    
                     <p class="status">${rejection.status}</p>
                     <p class="description">${rejection.description}</p>
                     <div>
