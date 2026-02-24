@@ -14,6 +14,9 @@ let filterSection = document.getElementById('filtered-section');
 let allCards = document.getElementById('allCard');
 let jobCount = document.getElementById('job-count');
 
+let noJob = document.getElementById('no-job');
+
+
 
 function calculateTotal() {
   totalJob.innerText = allCards.children.length;
@@ -23,14 +26,31 @@ function calculateTotal() {
 
   if (currentStatus === 'interview-filter-btn') {
     jobCount.innerText = `${interviewList.length} / ${total}`;
+    if (interviewList.length < 1) {
+      noJob.classList.remove('hidden');
+    } else {
+      noJob.classList.add('hidden');
+    }
   }
   else if (currentStatus === 'rejected-filter-btn') {
     jobCount.innerText = `${rejectionList.length} / ${total}`;
+    if (rejectionList.length < 1) {
+      noJob.classList.remove('hidden');
+    } else {
+      noJob.classList.add('hidden');
+    }
   }
   else {
-    jobCount.innerText = allCards.children.length;
-    ;
+    jobCount.innerText = total;
+    if (total < 1) {
+      noJob.classList.remove('hidden');
+    } else {
+      noJob.classList.add('hidden');
+    }
+
+
   }
+
 
 }
 
