@@ -196,8 +196,8 @@ function renderInterview() {
                     <p class="position">${interview.position}</p>
                     <div class="flex gap-2">
                     <p class="location"> ${interview.location}</p>
-                    <p class="type">• ${interview.location}</p>
-                    <p class="salary">• ${interview.location}</p>
+                    <p class="type">• ${interview.type}</p>
+                    <p class="salary">• ${interview.salary}</p>
                     </div>
                     
                     <p class="status">${interview.status}</p>
@@ -228,8 +228,8 @@ function renderRejection() {
                     <p class="position">${rejection.position}</p>
                     <div class="flex gap-2">
                     <p class="location"> ${rejection.location}</p>
-                    <p class="type">• ${rejection.location}</p>
-                    <p class="salary">• ${rejection.location}</p>
+                    <p class="type">• ${rejection.type}</p>
+                    <p class="salary">• ${rejection.salary}</p>
                     </div>
                     
                     <p class="status">${rejection.status}</p>
