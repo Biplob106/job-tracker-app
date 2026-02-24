@@ -194,7 +194,7 @@ function renderInterview() {
     div.innerHTML = ` <div class="space-y-6">
                     <h1 class="comapny-name">${interview.companyName}</h1>
                     <p class="position">${interview.position}</p>
-                    <div>
+                    <div class="flex gap-2">
                     <p class="location"> ${interview.location}</p>
                     <p class="type">• ${interview.location}</p>
                     <p class="salary">• ${interview.location}</p>
@@ -226,7 +226,7 @@ function renderRejection() {
     div.innerHTML = ` <div class="space-y-6">
                     <h1 class="comapny-name">${rejection.companyName}</h1>
                     <p class="position">${rejection.position}</p>
-                    <div>
+                    <div class="flex gap-2">
                     <p class="location"> ${rejection.location}</p>
                     <p class="type">• ${rejection.location}</p>
                     <p class="salary">• ${rejection.location}</p>
